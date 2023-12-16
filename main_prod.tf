@@ -1,4 +1,5 @@
-#TERRAFORM/main.tf
+#TERRAFORM/env/prod/main.tf
+
 provider "aws" {
   region = var.default_region
 }
@@ -13,9 +14,9 @@ module "vpc" {
 module "ec2_instance" {
   source            = "./modules/ec2_instance"
   regions           = var.regions
-  environments      = var.environments
+  environments      = ["prod"]
   instance_type     = var.instance_type
-  ami               = var.ami
+  ami               = var.ami["prod"]
   vpc_id            = module.vpc.vpc_id
   subnet_ids        = module.vpc.subnet_ids
   availability_zones = module.vpc.availability_zones

@@ -2,30 +2,30 @@
 
 ## Overview
 
-This documentation provides an overview of the Terraform infrastructure 
-deployment project.The project includes the creation of
-AWS resources, such as a Virtual Private Cloud (VPC) and EC2 instances.
+This documentation provides an overview of the Terraform infrastructure deployment project. The project includes the creation of AWS resources, such as a Virtual Private Cloud (VPC) and EC2 instances.
 
 ## Project Structure
 
 The project is organized into the following structure:
 
 - **TERRAFORM/**
-- **main.tf**: Contains the main Terraform configuration.
-- **variables.tf**: Defines input variables.
-- **outputs.tf**: Specifies the outputs to display after
-Terraform applies the configuration.
-- **scripts/**
-- **create_ansible_docker.sh**: Bash script for setting up Ansible and Docker on EC2 instances.
-- **modules/**
-- **vpc/**
-- **main.tf**: VPC-specific configuration.
-- **variables.tf**: VPC-specific variables.
-- **outputs.tf**: VPC-specific outputs.
-- **ec2_instance/**
-- **main.tf**: EC2 instance-specific configuration.
-- **variables.tf**: EC2 instance-specific variables.
-- **outputs.tf**: EC2 instance-specific outputs.
+  - **main.tf**: Contains the main Terraform configuration.
+  - **variables.tf**: Defines input variables.
+  - **outputs.tf**: Specifies the outputs to display after Terraform applies the configuration.
+  - **scripts/**
+    - **create_ansible_docker.sh**: Bash script for setting up Ansible and Docker on EC2 instances.
+  - **modules/**
+    - **vpc/**
+      - **main.tf**: VPC-specific configuration.
+      - **variables.tf**: VPC-specific variables.
+      - **outputs.tf**: VPC-specific outputs.
+    - **ec2_instance/**
+      - **main.tf**: EC2 instance-specific configuration.
+      - **variables.tf**: EC2 instance-specific variables.
+      - **outputs.tf**: EC2 instance-specific outputs.
+    - **route_table/**
+      - **main.tf**: Route table configuration.
+      - **variables.tf**: Route table variables.
 
 ## Input Variables
 
@@ -38,6 +38,9 @@ The following input variables are defined in `variables.tf`:
 - **ami**: Map of AMI IDs for Ubuntu in different regions.
 - **vpc_cidr**: CIDR block for VPC.
 - **default_region**: Default AWS region.
+- **vpc_id**: VPC ID.
+- **subnet_ids**: List of subnet IDs.
+- **routes**: List of route configurations.
 
 ## Outputs
 
@@ -69,5 +72,3 @@ For detailed logs, run `terraform apply -debug` and inspect the output.
 ## Author
 
 Ongia Emmanuel
-
-
